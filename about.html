@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О проекте | Автоматизация процессов университета</title>
+    <style>
+        /* Подключение шрифтов Gilroy */
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('fonts/Gilroy-Bold.woff2') format('woff2'), url('fonts/Gilroy-Bold.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('fonts/Gilroy-SemiBold.woff2') format('woff2'), url('fonts/Gilroy-SemiBold.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('fonts/Gilroy-Light.woff2') format('woff2'), url('fonts/Gilroy-Light.woff') format('woff');
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        /* Базовые стили */
+        body {
+            font-family: 'Gilroy', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка сайта */
+        header {
+            background-color: #000000;
+            padding: 20px 0;
+            border-bottom: 1px solid #32CD32;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        /* Навигационное меню */
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+            nav ul li {
+                margin-left: 30px;
+            }
+
+                nav ul li a {
+                    color: #FFFFFF;
+                    text-decoration: none;
+                    font-weight: 600;
+                    font-size: 16px;
+                    transition: color 0.3s;
+                }
+
+                    nav ul li a:hover {
+                        color: #7FFF00;
+                    }
+
+        /* Основной контент */
+        .about-content {
+            padding: 60px 0;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #7FFF00;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #32CD32;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .floor-plan {
+            border: 1px solid #32CD32;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+            .floor-plan:hover {
+                transform: scale(1.02);
+                box-shadow: 0 0 15px rgba(50, 205, 50, 0.5);
+            }
+
+            .floor-plan img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+        .floor-plan-caption {
+            padding: 15px;
+            background-color: #121212;
+            font-size: 14px;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid #7FFF00;
+            border-radius: 8px;
+        }
+
+        .modal-caption {
+            text-align: center;
+            color: #FFFFFF;
+            font-size: 18px;
+            margin-top: 15px;
+            font-weight: 300;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #FFFFFF;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+            .close:hover {
+                color: #7FFF00;
+            }
+
+        /* Подвал */
+        footer {
+            background-color: #000000;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #32CD32;
+            margin-top: 60px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                max-width: 95%;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта с логотипом и навигацией -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html">
+                <img src="Политех белый.png" alt="Логотип Московского Политеха" class="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О проекте</a></li>
+                    <li><a href="team.html">Участники</a></li>
+                    <li><a href="journal.html">Журнал</a></li>
+                    <li><a href="resources.html">Ресурсы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        <section class="about-content">
+            <div class="container">
+                <h1>О проекте</h1>
+
+                <h2>Актуальность проекта</h2>
+                <p>Создание 3D-моделей зданий Московского Политеха является важным этапом в развитии инфраструктуры образовательного учреждения и города в целом. Современные технологии позволяют значительно улучшить визуализацию пространственных объектов, делая их доступными для широкого круга пользователей. Это способствует повышению узнаваемости университета, улучшению навигации студентов и гостей, а также создает дополнительные возможности для виртуальных экскурсий и презентаций.</p>
+
+                <h2>Проблематика</h2>
+                <p>На сегодняшний день Московский Политех не имеет полноценной трехмерной модели своих корпусов, доступной широкой аудитории через такие платформы, как 2ГИС; навигация и маршрутизация как внутри корпусов, так и между ними отсутствует. В результате пользователи сталкиваются с трудностями при ориентации на территории вуза, особенно когда речь идет об абитуриентах, первокурсниках и посетителях.</p>
+                <p>Территория Московского Политеха располагается на нескольких удаленных друг от друга участках, расположенных в разных районах Москвы. Традиционная двумерная карта, предоставляемая на бумажных носителях или через онлайн-ресурсы, часто оказывается недостаточной для полноценного понимания расположения зданий и маршрутов между ними.</p>
+
+                <h2>Цель проекта</h2>
+                <p>Создание высококачественной 3D-модели зданий Московского Политеха для интеграции в платформу 2ГИС, чтобы повысить удобство навигации и привлечь внимание к университету.</p>
+
+                <h2>Планы этажей</h2>
+                <div class="image-grid">
+                    <div class="floor-plan" onclick="openModal('modal1')">
+                        <img src="media/image2.jpeg" alt="План 3 этажа учебного корпуса Б">
+                        <div class="floor-plan-caption">Рисунок 1 — План 3 этажа учебного корпуса «Б»</div>
+                    </div>
+                    <div class="floor-plan" onclick="openModal('modal2')">
+                        <img src="media/image3.jpeg" alt="План 2 этажа учебного корпуса В">
+                        <div class="floor-plan-caption">Рисунок 2 — План 2 этажа учебного корпуса «В»</div>
+                    </div>
+                    <div class="floor-plan" onclick="openModal('modal3')">
+                        <img src="media/image4.png" alt="План 3 этажа учебного корпуса Н">
+                        <div class="floor-plan-caption">Рисунок 3 — План 3 этажа учебного корпуса «Н»</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальные окна -->
+    <div id="modal1" class="modal">
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+        <img class="modal-content" src="media/image2.jpg" alt="План 3 этажа учебного корпуса Б">
+        <div class="modal-caption">Рисунок 1 — План 3 этажа учебного корпуса «Б»</div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <span class="close" onclick="closeModal('modal2')">&times;</span>
+        <img class="modal-content" src="media/image3.jpg" alt="План 2 этажа учебного корпуса В">
+        <div class="modal-caption">Рисунок 2 — План 2 этажа учебного корпуса «В»</div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <span class="close" onclick="closeModal('modal3')">&times;</span>
+        <img class="modal-content" src="media/image4.png" alt="План 3 этажа учебного корпуса Н">
+        <div class="modal-caption">Рисунок 3 — План 3 этажа учебного корпуса «Н»</div>
+    </div>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">Московский Политехнический Университет © 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        // Функция для открытия модального окна
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+            document.body.style.overflow = "hidden"; // Запрет прокрутки страницы
+        }
+
+        // Функция для закрытия модального окна
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+            document.body.style.overflow = "auto"; // Возобновление прокрутки страницы
+        }
+
+        // Закрытие модального окна при клике вне изображения
+        window.onclick = function(event) {
+            if (event.target.className === "modal") {
+                event.target.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+    </script>
+</body>
+</html>

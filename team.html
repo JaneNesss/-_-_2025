@@ -1,0 +1,337 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Участники проекта | Московский Политех</title>
+    <style>
+        /* Подключение шрифтов Gilroy */
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('fonts/Gilroy-Bold.woff2') format('woff2'), url('fonts/Gilroy-Bold.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('fonts/Gilroy-SemiBold.woff2') format('woff2'), url('fonts/Gilroy-SemiBold.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('fonts/Gilroy-Light.woff2') format('woff2'), url('fonts/Gilroy-Light.woff') format('woff');
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        /* Базовые стили */
+        body {
+            font-family: 'Gilroy', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка сайта */
+        header {
+            background-color: #000000;
+            padding: 20px 0;
+            border-bottom: 1px solid #32CD32;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        /* Навигационное меню */
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+            nav ul li {
+                margin-left: 30px;
+            }
+
+                nav ul li a {
+                    color: #FFFFFF;
+                    text-decoration: none;
+                    font-weight: 600;
+                    font-size: 16px;
+                    transition: color 0.3s;
+                }
+
+                    nav ul li a:hover {
+                        color: #7FFF00;
+                    }
+
+        /* Основной контент */
+        .team-content {
+            padding: 60px 0;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #7FFF00;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* Стили для карточек участников */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-card {
+            background-color: #121212;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #32CD32;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .team-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(50, 205, 50, 0.3);
+                border-color: #7FFF00;
+            }
+
+            .team-card h3 {
+                font-size: 18px;
+                font-weight: 600;
+                color: #7FFF00;
+                margin-bottom: 10px;
+            }
+
+            .team-card .contribution {
+                font-size: 14px;
+                color: #32CD32;
+                margin-bottom: 15px;
+                font-weight: 300;
+            }
+
+            .team-card .details {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease;
+                font-size: 14px;
+                font-weight: 300;
+            }
+
+            .team-card.active .details {
+                max-height: 300px;
+                margin-top: 15px;
+            }
+
+            .team-card .details-item {
+                margin-bottom: 8px;
+            }
+
+                .team-card .details-item strong {
+                    color: #7FFF00;
+                    font-weight: 600;
+                }
+
+        /* Подвал */
+        footer {
+            background-color: #000000;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #32CD32;
+            margin-top: 60px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта с логотипом и навигацией -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html">
+                <img src="Политех белый.png" alt="Логотип Московского Политеха" class="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О проекте</a></li>
+                    <li><a href="team.html">Участники</a></li>
+                    <li><a href="journal.html">Журнал</a></li>
+                    <li><a href="resources.html">Ресурсы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        <section class="team-content">
+            <div class="container">
+                <h1>Участники проекта</h1>
+
+                <div class="team-grid">
+                    <!-- Карточка участника 1 -->
+                    <div class="team-card" onclick="toggleDetails(this)">
+                        <h3>Богук Татьяна</h3>
+                        <div class="contribution">Участие в сборе данных, моделировании</div>
+                        <div class="details">
+                            <div class="details-item"><strong>Группа:</strong> 241-332</div>
+                            <div class="details-item"><strong>Специальность:</strong> Информационные системы и технологии</div>
+                            <div class="details-item"><strong>Интересный факт:</strong> Увлекается 3D-моделированием с 14 лет</div>
+                        </div>
+                    </div>
+
+                    <!-- Карточка участника 2 -->
+                    <div class="team-card" onclick="toggleDetails(this)">
+                        <h3>Варивода Маргарита</h3>
+                        <div class="contribution">Разработка концепции, тестирование</div>
+                        <div class="details">
+                            <div class="details-item"><strong>Группа:</strong> 241-332</div>
+                            <div class="details-item"><strong>Специальность:</strong> Информационные системы и технологиия</div>
+                            <div class="details-item"><strong>Интересный факт:</strong> Победитель хакатона по AR-технологиям</div>
+                        </div>
+                    </div>
+
+                    <!-- Карточка участника 3 -->
+                    <div class="team-card" onclick="toggleDetails(this)">
+                        <h3>Бастрон Глеб</h3>
+                        <div class="contribution">Оптимизация моделей</div>
+                        <div class="details">
+                            <div class="details-item"><strong>Группа:</strong> 241-334</div>
+                            <div class="details-item"><strong>Специальность:</strong> Информационная безопасность</div>
+                            <div class="details-item"><strong>Интересный факт:</strong> Создал 3D-модель всего кампуса за 48 часов</div>
+                        </div>
+                    </div>
+
+                    <!-- Карточка участника 4 -->
+                    <div class="team-card" onclick="toggleDetails(this)">
+                        <h3>Кондрашов Михаил</h3>
+                        <div class="contribution">Координация с 2ГИС</div>
+                        <div class="details">
+                            <div class="details-item"><strong>Группа:</strong> 242-336</div>
+                            <div class="details-item"><strong>Специальность:</strong> Информационная безопасность</div>
+                            <div class="details-item"><strong>Интересный факт:</strong> Организовал 5 успешных IT-проектов</div>
+                        </div>
+                    </div>
+
+                    <!-- Карточка участника 5 -->
+                    <div class="team-card" onclick="toggleDetails(this)">
+                        <h3>Будникова Варвара</h3>
+                        <div class="contribution">Визуализация данных</div>
+                        <div class="details">
+                            <div class="details-item"><strong>Группа:</strong> 201-362</div>
+                            <div class="details-item"><strong>Специальность:</strong> Веб-дизайн</div>
+                            <div class="details-item"><strong>Интересный факт:</strong> Создала логотип для студенческого клуба</div>
+                        </div>
+                    </div>
+
+                    <!-- Карточка участника 6 -->
+                    <div class="team-card" onclick="toggleDetails(this)">
+                        <h3>Гайнуллин Никита</h3>
+                        <div class="contribution">Интеграция с API 2ГИС</div>
+                        <div class="details">
+                            <div class="details-item"><strong>Группа:</strong> 204-665</div>
+                            <div class="details-item"><strong>Специальность:</strong> Разработка ПО</div>
+                            <div class="details-item"><strong>Интересный факт:</strong> Автор популярного GitHub-репозитория с API</div>
+                        </div>
+                    </div>
+
+                    <!-- Остальные участники (можно добавить аналогично) -->
+                    <div class="team-card" onclick="toggleDetails(this)">
+                        <h3>Гозиев Махсуджон</h3>
+                        <div class="contribution">Фотограмметрия зданий</div>
+                        <div class="details">
+                            <div class="details-item"><strong>Группа:</strong> 202-464</div>
+                            <div class="details-item"><strong>Специальность:</strong> Геоинформационные системы</div>
+                            <div class="details-item"><strong>Интересный факт:</strong> Сделал 1000+ фотографий кампуса для проекта</div>
+                        </div>
+                    </div>
+
+                    <div class="team-card" onclick="toggleDetails(this)">
+                        <h3>Елагина София</h3>
+                        <div class="contribution">Документирование проекта</div>
+                        <div class="details">
+                            <div class="details-item"><strong>Группа:</strong> 203-565</div>
+                            <div class="details-item"><strong>Специальность:</strong> Техническая писательница</div>
+                            <div class="details-item"><strong>Интересный факт:</strong> Ведет блог о технической документации</div>
+                        </div>
+                    </div>
+
+                    <div class="team-card" onclick="toggleDetails(this)">
+                        <h3>Нестерова Евгения</h3>
+                        <div class="contribution">Участие в сборе данных, моделировании</div>
+                        <div class="details">
+                            <div class="details-item"><strong>Группа:</strong> 241-339</div>
+                            <div class="details-item"><strong>Специальность:</strong> Информационные системы и технологии</div>
+                            <div class="details-item"><strong>Интересный факт:</strong>  Увлекается 3D-моделированием с 14 лет</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">Московский Политехнический Университет © 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        // Функция для показа/скрытия деталей участника
+        function toggleDetails(card) {
+            card.classList.toggle('active');
+
+            // Закрываем другие открытые карточки
+            if (card.classList.contains('active')) {
+                document.querySelectorAll('.team-card').forEach(item => {
+                    if (item !== card && item.classList.contains('active')) {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

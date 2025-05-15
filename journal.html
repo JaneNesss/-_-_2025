@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Журнал проекта | Московский Политех</title>
+    <style>
+        /* Подключение шрифтов Gilroy */
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('fonts/Gilroy-Bold.woff2') format('woff2'), url('fonts/Gilroy-Bold.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('fonts/Gilroy-SemiBold.woff2') format('woff2'), url('fonts/Gilroy-SemiBold.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('fonts/Gilroy-Light.woff2') format('woff2'), url('fonts/Gilroy-Light.woff') format('woff');
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        /* Базовые стили */
+        body {
+            font-family: 'Gilroy', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка сайта */
+        header {
+            background-color: #000000;
+            padding: 20px 0;
+            border-bottom: 1px solid #32CD32;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        /* Навигационное меню */
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+            nav ul li {
+                margin-left: 30px;
+            }
+
+                nav ul li a {
+                    color: #FFFFFF;
+                    text-decoration: none;
+                    font-weight: 600;
+                    font-size: 16px;
+                    transition: color 0.3s;
+                }
+
+                    nav ul li a:hover {
+                        color: #7FFF00;
+                    }
+
+        /* Основной контент */
+        .journal-content {
+            padding: 60px 0;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #7FFF00;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* Стили для постов */
+        .journal-posts {
+            display: grid;
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        .journal-post {
+            background-color: #121212;
+            border-radius: 10px;
+            padding: 30px;
+            border: 1px solid #32CD32;
+            transition: all 0.3s ease;
+        }
+
+            .journal-post:hover {
+                box-shadow: 0 5px 15px rgba(50, 205, 50, 0.3);
+                border-color: #7FFF00;
+            }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #32CD32;
+            padding-bottom: 15px;
+        }
+
+        .post-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #7FFF00;
+            margin: 0;
+        }
+
+        .post-date {
+            font-size: 16px;
+            font-weight: 300;
+            color: #32CD32;
+        }
+
+        .post-content {
+            font-size: 16px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .post-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .post-image {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #32CD32;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+            .post-image:hover {
+                transform: scale(1.03);
+                box-shadow: 0 5px 15px rgba(50, 205, 50, 0.5);
+                border-color: #7FFF00;
+            }
+
+            .post-image img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+        .image-caption {
+            padding: 10px;
+            background-color: #1a1a1a;
+            font-size: 14px;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: #000000;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #32CD32;
+            margin-top: 60px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .post-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .post-date {
+                margin-top: 10px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .post-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта с логотипом и навигацией -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html">
+                <img src="Политех белый.png" alt="Логотип Московского Политеха" class="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О проекте</a></li>
+                    <li><a href="team.html">Участники</a></li>
+                    <li><a href="journal.html">Журнал</a></li>
+                    <li><a href="resources.html">Ресурсы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        <section class="journal-content">
+            <div class="container">
+                <h1>Журнал проекта</h1>
+
+                <div class="journal-posts">
+                    <!-- Пост 1 -->
+                    <article class="journal-post">
+                        <div class="post-header">
+                            <h2 class="post-title">Сбор данных завершен</h2>
+                            <div class="post-date">05.02.2025</div>
+                        </div>
+                        <div class="post-content">
+                            <p>Нами были собраны все необходимые архитектурные планы и чертежи зданий Московского Политеха. Проведены уточнения планов и размеров помещений. Особое внимание уделено корпусам на Большой Семеновской улице, так как они являются наиболее посещаемыми.</p>
+                            <p>В результате подготовлена полная документация для начала процесса 3D-моделирования. Все данные проверены на соответствие реальным размерам и актуальности.</p>
+                        </div>
+                        <div class="post-images">
+                            <div class="post-image">
+                                <img src="media/image2.jpg" alt="План 3 этажа учебного корпуса Б">
+                                <div class="image-caption">План 3 этажа корпуса «Б»</div>
+                            </div>
+                            <div class="post-image">
+                                <img src="media/image3.jpg" alt="План 2 этажа учебного корпуса В">
+                                <div class="image-caption">План 2 этажа корпуса «В»</div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Пост 2 -->
+                    <article class="journal-post">
+                        <div class="post-header">
+                            <h2 class="post-title">Начато моделирование корпуса Б</h2>
+                            <div class="post-date">15.02.2025</div>
+                        </div>
+                        <div class="post-content">
+                            <p>Приступили к созданию 3D-моделей учебного корпуса «Б». Построены базовые формы здания на основе собранных чертежей. Начата детализация объектов с добавлением окон, дверей и других архитектурных элементов.</p>
+                            <p>Особое внимание уделяется точности передачи пространственных характеристик здания для последующей интеграции с навигационной системой 2ГИС.</p>
+                        </div>
+                        <div class="post-images">
+                            <div class="post-image">
+                                <img src="media/image5.png" alt="2d-план 2 этажа учебного корпуса Н">
+                                <div class="image-caption">2D-план 2 этажа корпуса «Н»</div>
+                            </div>
+                            <div class="post-image">
+                                <img src="media/image6.jpg" alt="2 этаж учебного корпуса Н в формате для 2ГИС">
+                                <div class="image-caption">Визуализация для 2ГИС</div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Пост 3 -->
+                    <article class="journal-post">
+                        <div class="post-header">
+                            <h2 class="post-title">Интеграция с 2ГИС</h2>
+                            <div class="post-date">20.03.2025</div>
+                        </div>
+                        <div class="post-content">
+                            <p>Начался процесс интеграции созданных 3D-моделей с платформой 2ГИС. Проведены первые тесты передачи данных и проверка корректности отображения моделей в системе.</p>
+                            <p>Получены положительные отзывы от представителей 2ГИС о качестве и детализации моделей. В ближайшее время планируется завершить интеграцию всех корпусов университета.</p>
+                        </div>
+                        <div class="post-images">
+                            <div class="post-image">
+                                <img src="media/image7.png" alt="3d-модель 2 этажа учебного корпуса Н">
+                                <div class="image-caption">3D-модель 2 этажа</div>
+                            </div>
+                            <div class="post-image">
+                                <img src="media/image8.png" alt="3d-модель 2 этажа учебного корпуса Н в формате для 2ГИС">
+                                <div class="image-caption">Модель в формате 2ГИС</div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">Московский Политехнический Университет © 2025</p>
+        </div>
+    </footer>
+</body>
+</html>

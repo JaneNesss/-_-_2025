@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ресурсы проекта | Московский Политех</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Подключение шрифтов Gilroy */
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('fonts/Gilroy-Bold.woff2') format('woff2'), url('fonts/Gilroy-Bold.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('fonts/Gilroy-SemiBold.woff2') format('woff2'), url('fonts/Gilroy-SemiBold.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('fonts/Gilroy-Light.woff2') format('woff2'), url('fonts/Gilroy-Light.woff') format('woff');
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        /* Базовые стили */
+        body {
+            font-family: 'Gilroy', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка сайта */
+        header {
+            background-color: #000000;
+            padding: 20px 0;
+            border-bottom: 1px solid #32CD32;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        /* Навигационное меню */
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+            nav ul li {
+                margin-left: 30px;
+            }
+
+                nav ul li a {
+                    color: #FFFFFF;
+                    text-decoration: none;
+                    font-weight: 600;
+                    font-size: 16px;
+                    transition: color 0.3s;
+                }
+
+                    nav ul li a:hover {
+                        color: #7FFF00;
+                    }
+
+        /* Основной контент */
+        .resources-content {
+            padding: 60px 0;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #7FFF00;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #32CD32;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #32CD32;
+        }
+
+        /* Стили для карточек ресурсов */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .resource-card {
+            background-color: #121212;
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid #32CD32;
+            transition: all 0.3s ease;
+        }
+
+            .resource-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(50, 205, 50, 0.2);
+                border-color: #7FFF00;
+            }
+
+            .resource-card h3 {
+                font-size: 20px;
+                font-weight: 600;
+                color: #7FFF00;
+                margin-top: 0;
+                margin-bottom: 15px;
+                display: flex;
+                align-items: center;
+            }
+
+                .resource-card h3 i {
+                    margin-right: 15px;
+                    font-size: 24px;
+                    color: #32CD32;
+                }
+
+            .resource-card p {
+                font-size: 15px;
+                font-weight: 300;
+                margin-bottom: 20px;
+            }
+
+        .resource-link {
+            display: inline-block;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            background-color: #32CD32;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+            .resource-link:hover {
+                background-color: #7FFF00;
+                color: #000000;
+                transform: translateX(5px);
+            }
+
+            .resource-link i {
+                margin-left: 8px;
+            }
+
+        /* Подвал */
+        footer {
+            background-color: #000000;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #32CD32;
+            margin-top: 60px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта с логотипом и навигацией -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html">
+                <img src="Политех белый.png" alt="Логотип Московского Политеха" class="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О проекте</a></li>
+                    <li><a href="team.html">Участники</a></li>
+                    <li><a href="journal.html">Журнал</a></li>
+                    <li><a href="resources.html">Ресурсы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        <section class="resources-content">
+            <div class="container">
+                <h1>Полезные ресурсы</h1>
+
+                <!-- Раздел партнеров -->
+                <h2><i class="fas fa-handshake"></i> Партнеры проекта</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h3><i class="fas fa-map-marked-alt"></i> 2ГИС</h3>
+                        <p>Официальный сайт партнера проекта - компании 2ГИС, предоставляющей картографические сервисы и API для интеграции 3D-моделей.</p>
+                        <a href="https://2gis.ru" target="_blank" class="resource-link">Перейти на сайт <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h3><i class="fas fa-university"></i> Московский Политех</h3>
+                        <p>Официальный сайт Московского Политехнического университета с информацией о кампусах и образовательных программах.</p>
+                        <a href="https://mospolytech.ru" target="_blank" class="resource-link">Перейти на сайт <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Раздел материалов -->
+                <h2><i class="fas fa-book-open"></i> Материалы по 3D-моделированию</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h3><i class="fas fa-cube"></i> Основы 3D-моделирования</h3>
+                        <p>Подробная статья о принципах создания 3D-моделей для картографических сервисов с примерами и лучшими практиками.</p>
+                        <a href="https://habr.com/ru/articles/3d-modeling-basics" target="_blank" class="resource-link">Читать статью <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h3><i class="fas fa-ruler-combined"></i> Оптимизация 3D-моделей</h3>
+                        <p>Техническое руководство по оптимизации полигонов и текстур для веб-приложений и мобильных устройств.</p>
+                        <a href="https://medium.com/3d-optimization-guide" target="_blank" class="resource-link">Читать статью <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h3><i class="fas fa-map"></i> Интеграция с картографическими API</h3>
+                        <p>Подробное руководство по работе с API картографических сервисов для разработчиков.</p>
+                        <a href="https://developers.2gis.com" target="_blank" class="resource-link">Документация API <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h3><i class="fas fa-vr-cardboard"></i> Визуализация архитектуры</h3>
+                        <p>Современные методы визуализации архитектурных объектов для навигационных систем.</p>
+                        <a href="https://archviz.school/articles" target="_blank" class="resource-link">Читать статью <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Раздел документации -->
+                <h2><i class="fas fa-file-alt"></i> Документация проекта</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h3><i class="fas fa-file-pdf"></i> Техническое задание</h3>
+                        <p>Полное описание требований к 3D-моделям и функциональности интеграции с 2ГИС.</p>
+                        <a href="#" class="resource-link">Скачать PDF <i class="fas fa-download"></i></a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h3><i class="fas fa-project-diagram"></i> Архитектура решения</h3>
+                        <p>Схемы и описания архитектурных решений, использованных в проекте.</p>
+                        <a href="#" class="resource-link">Скачать PDF <i class="fas fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">Московский Политехнический Университет © 2025</p>
+        </div>
+    </footer>
+</body>
+</html>
